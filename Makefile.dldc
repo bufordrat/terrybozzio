@@ -1,0 +1,21 @@
+# httpr_intf                          -*- makefile-gmake -*-
+# Makefile.dldc
+
+RESULT = terrybozzio
+MAKEFLAGS += -j --no-print-directory
+
+ifndef DLDCREPO
+  DLDCREPO = /data/web/dldc/opam
+endif
+
+.PHONY: repo-add
+repo-add: terrybozzio.opam
+	$(MAKE) -C $(DLDCREPO) add NAME=$(RESULT) OPAM=$$PWD/terrybozzio.opam
+
+.PHONY: publish
+publish: terrybozzio.opam
+	$(MAKE) -C $(DLDCREPO) update NAME=$(RESULT) OPAM=$$PWD/terrybozzio.opam
+
+.PHONY: install-doc
+install-doc: odoc
+	rsync -av odoc/$(RESULT)/html/ $(ODOC_WEB)
