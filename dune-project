@@ -1,4 +1,5 @@
 (lang dune 3.13)
+(name terrybozzio)
 (generate_opam_files true)
 (package
  (name terrybozzio)
