@@ -18,7 +18,7 @@
    utop
    ocp-index
    merlin)
- (source (github your-username/your-repo)))
+ (source (github bufordrat/terrybozzio)))
 
 ; Local Variables:
 ; mode: dune
